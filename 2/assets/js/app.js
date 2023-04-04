@@ -1,12 +1,18 @@
-var example = 'hello';
 
-var charRepeats = function(str) {
-    for (var i=0; i<str.length; i++) {
-      if ( str.indexOf(str[i]) !== str.lastIndexOf(str[i]) ) {
-        return false; // repeats
+function duplicateCount(string) {
+  let element = {}
+  for(let i = 0; i < string.length; i++) {
+      const char = string[i]
+      if(char in element) {
+        element[char] +=1
+      } else {
+        element[char] = 1
       }
-    }
-  return true;
+  }
+  return element
 }
 
-console.log( charRepeats(example) );
+const string = prompt('Enter a string: ');
+const value = duplicateCount(string);
+console.log(duplicateCount(string));
+
